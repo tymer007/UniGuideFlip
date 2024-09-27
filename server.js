@@ -1,4 +1,5 @@
 import express from "express";
+import cors from "cors";
 import dotenv from "dotenv";
 import { connectDB } from "./config/db.js";
 import { v2 as cloudinary } from "cloudinary";
@@ -15,6 +16,7 @@ cloudinary.config({
 
 const app = express();
 
+app.use(cors({origin:"*"}))
 app.use(express.json()); // accepts json data in req.body
 
 app.use("/api/markers", markerRoutes);
