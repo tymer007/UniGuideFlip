@@ -15,7 +15,7 @@ export const getMarkers = async (req, res) => {
 export const createMarker = async (req, res) => {
   const marker = req.body;
 
-  if (!marker.name || !marker.geocode || !marker.type) {
+  if (!marker.buildingName || !marker.geocode || !marker.buildingType) {
     return res.status(400).json({ message: "All fields are required" });
   }
 

@@ -17,7 +17,7 @@ const MarkerSchema = new mongoose.Schema({
     type: String,  // Could be URLs or paths to other photos
     required: false
   },
-  name: {
+  buildingName: {
     type: String,
     required: true
   },
@@ -25,7 +25,7 @@ const MarkerSchema = new mongoose.Schema({
     type: String,
     required: false
   },
-  type: {
+  buildingType: {
     type: String,  // Type of the place (e.g., Restaurant)
     required: true
   },
