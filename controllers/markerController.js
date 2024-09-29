@@ -22,7 +22,9 @@ export const createMarker = async (req, res) => {
   try {
     // Upload cover photo to Cloudinary if provided
     if (marker.coverPhoto) {
-      const uploadedResponse = await cloudinary.uploader.upload(marker.coverPhoto);
+      const uploadedResponse = await cloudinary.uploader.upload(marker.coverPhoto, {
+        resource_type: 'auto',
+    });
       marker.coverPhoto = uploadedResponse.secure_url;
     }
   } catch (error) {
@@ -54,7 +56,9 @@ export const updateMarker = async (req, res) => {
       await cloudinary.uploader.destroy(marker.coverPhoto.split("/").pop().split(".")[0]);
       
       // Upload new cover photo
-      const uploadedResponse = await cloudinary.uploader.upload(marker.coverPhoto);
+      const uploadedResponse = await cloudinary.uploader.upload(marker.coverPhoto, {
+        resource_type: 'auto',
+    });
       marker.coverPhoto = uploadedResponse.secure_url;
     }
   } catch (error) {
