@@ -29,6 +29,11 @@ const MarkerSchema = new mongoose.Schema({
     type: String,  // Type of the place (e.g., Restaurant)
     required: true
   },
+  University: {
+    type: String,
+    default: 'University of Jos',
+    required: true
+  },
   rating: {
     type: String,  // Store ratings as strings (you could convert to Number)
     required: false
