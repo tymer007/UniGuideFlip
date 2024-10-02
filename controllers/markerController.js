@@ -20,19 +20,6 @@ export const createMarker = async (req, res) => {
   }
 
   try {
-    // Upload cover photo to Cloudinary if provided
-    if (marker.coverPhoto) {
-      const uploadedResponse = await cloudinary.uploader.upload(marker.coverPhoto, {
-        resource_type: 'auto',
-    });
-      marker.coverPhoto = uploadedResponse.secure_url;
-    }
-  } catch (error) {
-    console.error("Error in uploading cover photo:", error.message || error);
-    return res.status(500).json({ success: false, message: "Error uploading cover photo" });
-  }
-
-  try {
     const newMarker = new Marker(marker);
     await newMarker.save();
     res.status(201).json({ success: true, data: newMarker });
