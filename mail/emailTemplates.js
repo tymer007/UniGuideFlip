@@ -28,6 +28,47 @@ export const VERIFICATION_EMAIL_TEMPLATE = `
 </html>
 `;
 
+export const WELCOME_EMAIL_TEMPLATE = `
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome to UniGuide</title>
+</head>
+<body style="font-family: Arial, sans-serif; color: #0A344B; max-width: 600px; margin: 0 auto; padding: 20px; background-color: #D4F4FB;">
+  <div style="text-align: center;">
+    <img src="https://uniguideng.com/welcomeBanner.png" alt="Welcome to UniGuide" style="width: 100%; border-radius: 5px 5px 0 0;">
+  </div>
+  <div style="padding: 20px; background-color: #fff; border-radius: 0 0 5px 5px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+    <h2 style="color: #0754EB;">Welcome, {name}!</h2>
+    <p>We're thrilled to have you join UniGuide, your online campus companion designed to make your university experience at the University of Jos seamless and informed!</p>
+    <h3 style="color: #0754EB;">Key Features 🌟</h3>
+    <ul style="padding-left: 20px;">
+      <li>📍 <strong>Interactive Campus Map</strong>: Navigate your campus with ease using real-time location guidance.</li>
+      <li>📆 <strong>Event & Class Alerts</strong>: Get notified about class changes, events, and important announcements.</li>
+      <li>📚 <strong>Resource Directory</strong>: Quickly find library locations, study spots, and other campus resources.</li>
+    </ul>
+    <p>Start exploring UniGuide and see how it can make your campus journey smoother, more engaging, and informed.</p>
+    <p>If you have any questions, feel free to reach out to us at <a href="mailto:support@uniguideng.com" style="color: #4EB3D3;">support@uniguideng.com</a>. We’re here to help!</p>
+    <div style="text-align: center; margin: 30px 0;">
+      <a href="https://uniguideng.com/campus" style="padding: 15px 30px; color: #fff; background-color: #4EB3D3; text-decoration: none; border-radius: 5px; font-size: 16px;">Explore UniJos</a>
+    </div>
+  </div>
+  <div style="text-align: center; margin-top: 20px; color: #888;">
+    <p>Stay connected! Follow us to stay updated:</p>
+    <a href="https://web.facebook.com/people/UniGuide-NG/61567782034496/" style="margin: 0 5px;"><img src="https://uniguideng.com/logos/facebook.png" alt="Facebook" width="16"></a>
+    <a href="https://www.instagram.com/uniguide_ng" style="margin: 0 5px;"><img src="https://uniguideng.com/logos/instagram.png" alt="Instagram" width="24"></a>
+    <a href="https://x.com/UniGuide_NG" style="margin: 0 5px;"><img src="https://uniguideng.com/logos/twitter.png" alt="Twitter" width="26"></a>
+  </div>
+  <div style="text-align: center; font-size: 0.8em; color: #888; margin-top: 20px;">
+    <p>© UniGuide 2024 All Rights Reserved.</p>
+    <a href="{unsubscribe_link}" style="color: #888; text-decoration: none;">Unsubscribe</a>
+  </div>
+</body>
+</html>
+`;
+
 export const PASSWORD_RESET_SUCCESS_TEMPLATE = `
 <!DOCTYPE html>
 <html lang="en">
