@@ -10,7 +10,8 @@ const transporter = nodemailer.createTransport({
   auth: {
     user: process.env.GMAIL_USER,
     pass: process.env.GMAIL_PASS
-  }
+  },
+  socketTimeout: 10000 
 });
 
 // Default sender information
