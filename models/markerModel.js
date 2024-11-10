@@ -80,7 +80,11 @@ const MarkerSchema = new mongoose.Schema({
       type: String,
       required: false
     }
-  }
+  },
+  contributors: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User"
+  }],
 },{
     timestamps: true
 });

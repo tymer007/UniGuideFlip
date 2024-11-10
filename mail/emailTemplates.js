@@ -57,7 +57,7 @@ export const WELCOME_EMAIL_TEMPLATE = `
   </div>
   <div style="text-align: center; margin-top: 20px; color: #888;">
     <p>Stay connected! Follow us to stay updated:</p>
-    <a href="https://web.facebook.com/people/UniGuide-NG/61567782034496/" style="margin: 0 5px;"><img src="https://uniguideng.com/logos/facebook.png" alt="Facebook" width="16"></a>
+    <a href="https://web.facebook.com/people/UniGuide-NG/61567782034496/" style="margin: 0 5px;"><img src="https://uniguideng.com/logos/facebook.png" alt="Facebook" width="14"></a>
     <a href="https://www.instagram.com/uniguide_ng" style="margin: 0 5px;"><img src="https://uniguideng.com/logos/instagram.png" alt="Instagram" width="24"></a>
     <a href="https://x.com/UniGuide_NG" style="margin: 0 5px;"><img src="https://uniguideng.com/logos/twitter.png" alt="Twitter" width="26"></a>
   </div>

@@ -14,6 +14,7 @@ const UserSchema = new mongoose.Schema(
     password: {
       type: String,
       required: true,
+      minLength: 6,
     },
     uniEmail: {
       type: String,
@@ -72,6 +73,18 @@ const UserSchema = new mongoose.Schema(
         type: Number,
       },
     },
+    contributor: {
+      type: Boolean,
+      default: false,
+    },
+    contributions: [{
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Marker"
+    }],
+    favourites: [{
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Marker"
+    }],
     lastLogin: {
       type: Date,
       default: Date.now,

@@ -8,6 +8,7 @@ import { v2 as cloudinary } from "cloudinary";
 
 import markerRoutes from "./routes/markerRoute.js"
 import authRoutes from "./routes/authRoute.js" 
+import userRoutes from "./routes/userRoute.js"
 
 dotenv.config();
 
@@ -25,6 +26,7 @@ app.use(cookieParser()); // parse incoming cookies from request headers
 
 app.use("/api/markers", markerRoutes);
 app.use("/api/auth", authRoutes);
+app.use("/api/users", userRoutes);
 
 const PORT = process.env.PORT;
 
