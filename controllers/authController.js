@@ -14,11 +14,18 @@ import { generateVerificationCode } from "../utils/generateVerificationCode.js";
 import { generateTokenAndSetCookie } from "../utils/generateTokenAndSetCookie.js";
 
 export const signup = async (req, res) => {
-  const { email, password, name } = req.body;
+  const { email, password, name, termsAccepted, privacyPolicyAccepted  } = req.body;
 
   try {
     if (!email || !password || !name) {
       throw new Error("All fields are required");
+    }
+
+    if (!termsAccepted || !privacyPolicyAccepted) {
+      return res.status(400).json({
+        success: false,
+        message: "You must accept the terms and privacy policy to register",
+      });
     }
 
     const userAlreadyExists = await User.findOne({ email });
@@ -37,6 +44,10 @@ export const signup = async (req, res) => {
       name,
       verificationCode,
       verificationCodeExpiresAt: Date.now() + 3600000, // 1 hour
+      termsAccepted: true,
+      privacyPolicyAccepted: true,
+      termsAcceptedAt: Date.now(),
+      privacyPolicyAcceptedAt: Date.now(),
     });
 
     await user.save();

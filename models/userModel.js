@@ -85,6 +85,24 @@ const UserSchema = new mongoose.Schema(
       type: mongoose.Schema.Types.ObjectId,
       ref: "Marker"
     }],
+    termsAccepted: {
+      type: Boolean,
+      required: true
+    },
+    termsAcceptedAt: {
+      type: Date,
+      default: Date.now,
+      required: true
+    },
+    privacyPolicyAccepted: {
+      type: Boolean,
+      required: true
+    },
+    privacyPolicyAcceptedAt: {
+      type: Date,
+      default: Date.now,
+      required: true
+    },
     lastLogin: {
       type: Date,
       default: Date.now,
