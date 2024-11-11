@@ -34,8 +34,8 @@ const UserSchema = new mongoose.Schema(
     },
     role: {
       type: [String],
-      enum: ["student", "staff", "admin"], // Ensured "user" is removed from default
-      default: ["student"], // Or add "user" to the enum
+      enum: ["user", "staff", "admin"], // Ensured "user" is removed from default
+      default: ["user"], // Or add "user" to the enum
     },
     major: {
       faculty: {
@@ -45,7 +45,22 @@ const UserSchema = new mongoose.Schema(
         type: String,
       },
     },
+    referralSource: {
+      type: String
+    },    
+    userStatus: {
+      type: String,
+      enum: ["new student", "returning student", "visitor", "rather not say"]
+    },
+    isStudent: {
+      type: Boolean
+    },   
     university: {
+      type: String,
+      default: "University of Jos",
+      required: false
+    },
+    universityLocation: {
       name: {
         type: String,
         required: false,

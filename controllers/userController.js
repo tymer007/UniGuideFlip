@@ -29,17 +29,25 @@ export const updateProfile = async (req, res) => {
       "role",
       "major",
       "university",
+      "universityLocation",
       "defaultLocation",
       "favourites",
+      "userStatus",
     ];
 
     const updateData = {};
 
     for (const field of allowedFields) {
-      // Use 'for...of' instead of 'for...in'
       if (req.body[field]) {
         updateData[field] = req.body[field];
       }
+    }
+
+    // Check if userStatus is "new student" or "returning student"
+    if (updateData.userStatus === "new student" || updateData.userStatus === "returning student") {
+      updateData.isStudent = true;
+    } else if (updateData.userStatus) {
+      updateData.isStudent = false; // Reset isStudent if a non-student status is selected
     }
 
     // Update the user profile
@@ -49,7 +57,6 @@ export const updateProfile = async (req, res) => {
       { new: true }
     ).select("-password");
 
-    // Return the updated user
     res.json({ success: true, user });
   } catch (error) {
     console.error("Error updating profile", error);

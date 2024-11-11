@@ -63,6 +63,7 @@ export const signup = async (req, res) => {
       user: {
         ...user._doc,
         password: undefined,
+        verificationCode: undefined
       },
     });
   } catch (error) {
