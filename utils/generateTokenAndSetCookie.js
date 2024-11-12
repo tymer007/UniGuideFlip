@@ -1,5 +1,4 @@
 import jwt from "jsonwebtoken";
-import dotenv from "dotenv";
 
 export const generateTokenAndSetCookie = (res, userId) => {
   const token = jwt.sign({ userId }, process.env.JWT_SECRET, {
@@ -13,5 +12,9 @@ export const generateTokenAndSetCookie = (res, userId) => {
     maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
   });
 
-  return token;
+  return res.json({
+    success: true,
+    message: "User created successfully",
+    token: token, // Include token in the response body
+  });
 };
