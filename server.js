@@ -20,7 +20,10 @@ cloudinary.config({
 
 const app = express();
 
-app.use(cors({origin:"*", credentials: true}));
+app.use(cors({
+  origin: ["http://localhost:5173", "https://uniguideng.com"],
+  credentials: true
+}));
 app.use(express.json()); // accepts json data in req.body
 app.use(cookieParser()); // parse incoming cookies from request headers
 
