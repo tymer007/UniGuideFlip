@@ -53,13 +53,15 @@ export const signup = async (req, res) => {
     await user.save();
 
     // jwt authentication
-    generateTokenAndSetCookie(res, user._id);
+    const accessToken = generateTokenAndSetCookie(res, user._id);
+    user.token = accessToken;
 
     await sendVerificationEmail(user.email, verificationCode);
 
     res.status(201).json({
       success: true,
       message: "user created successfully",
+      accessToken,
       user: {
         ...user._doc,
         password: undefined,
