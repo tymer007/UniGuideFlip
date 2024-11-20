@@ -21,7 +21,7 @@ cloudinary.config({
 const app = express();
 
 app.use(cors({
-  origin: ["http://localhost:5173", "https://uniguideng.com"],
+  origin: process.env.CLIENT_URL,
   credentials: true
 }));
 app.use(express.json()); // accepts json data in req.body
