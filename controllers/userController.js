@@ -32,7 +32,7 @@ export const updateProfile = async (req, res) => {
       "universityLocation",
       "defaultLocation",
       "favourites",
-      "userStatus",
+      "userStatus"
     ];
 
     const updateData = {};
