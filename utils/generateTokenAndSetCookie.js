@@ -7,11 +7,12 @@ export const generateTokenAndSetCookie = (res, userId) => {
   });
 
   res.cookie("token", token, {
-    httpOnly: true, // Makes it inaccessible to client-side JavaScript
-    secure: process.env.NODE_ENV === "production", // Only sent over HTTPS
-    sameSite: "None", // Required for cross-origin requests
-    maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
-  });  
+    httpOnly: true,
+    secure: true,
+    sameSite: "None",
+    domain: ".uniguideng.com", // Explicitly specify your website's domain
+    maxAge: 7 * 24 * 60 * 60 * 1000,
+  });   
 
   return token;
 };
