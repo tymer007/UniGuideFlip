@@ -33,6 +33,8 @@ export const updateProfile = async (req, res) => {
       "universityLocation",
       "defaultLocation",
       "favourites",
+      "userStatus",
+      "referralSource",
       "userStatus"
     ];
 
