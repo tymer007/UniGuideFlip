@@ -21,6 +21,11 @@ const UserSchema = new mongoose.Schema(
       unique: true,
       sparse: true, // Prevents uniqueness issues for null/undefined
     },
+    phoneNumber: {
+      type: String,
+      required: false, // Make it required if necessary
+      unique: true,
+    },
     profilePicture: {
       type: String, // URL or path to photo
     },
@@ -46,19 +51,19 @@ const UserSchema = new mongoose.Schema(
       },
     },
     referralSource: {
-      type: String
-    },    
+      type: String,
+    },
     userStatus: {
       type: String,
-      enum: ["new student", "returning student", "visitor", "rather not say"]
+      enum: ["new student", "returning student", "visitor", "rather not say"],
     },
     isStudent: {
-      type: Boolean
-    },   
+      type: Boolean,
+    },
     university: {
       type: String,
       default: "University of Jos",
-      required: false
+      required: false,
     },
     universityLocation: {
       name: {
@@ -92,31 +97,35 @@ const UserSchema = new mongoose.Schema(
       type: Boolean,
       default: false,
     },
-    contributions: [{
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Marker"
-    }],
-    favourites: [{
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Marker"
-    }],
+    contributions: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Marker",
+      },
+    ],
+    favourites: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Marker",
+      },
+    ],
     termsAccepted: {
       type: Boolean,
-      required: true
+      required: true,
     },
     termsAcceptedAt: {
       type: Date,
       default: Date.now,
-      required: true
+      required: true,
     },
     privacyPolicyAccepted: {
       type: Boolean,
-      required: true
+      required: true,
     },
     privacyPolicyAcceptedAt: {
       type: Date,
       default: Date.now,
-      required: true
+      required: true,
     },
     lastLogin: {
       type: Date,
