@@ -23,10 +23,16 @@ const UserSchema = new mongoose.Schema(
     },
     phoneNumber: {
       type: String,
-      required: false, // Make it required if necessary
+      required: false,
       unique: true,
-      sparse: true
-    },
+      sparse: true,
+      validate: {
+        validator: function(value) {
+          return value !== null && value !== '';
+        },
+        message: 'Phone number cannot be null or empty',
+      },
+    },    
     profilePicture: {
       type: String, // URL or path to photo
     },
