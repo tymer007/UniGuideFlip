@@ -14,7 +14,7 @@ import { generateVerificationCode } from "../utils/generateVerificationCode.js";
 import { generateTokenAndSetCookie } from "../utils/generateTokenAndSetCookie.js";
 
 export const signup = async (req, res) => {
-  const { email, password, name, termsAccepted, privacyPolicyAccepted } =
+  const { email, password, name, termsAccepted, privacyPolicyAccepted, phoneNumber } =
     req.body;
 
   try {
