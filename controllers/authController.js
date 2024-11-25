@@ -53,6 +53,7 @@ export const signup = async (req, res) => {
       privacyPolicyAccepted: true,
       termsAcceptedAt: Date.now(),
       privacyPolicyAcceptedAt: Date.now(),
+      phoneNumber,
     });
 
     await user.save();
