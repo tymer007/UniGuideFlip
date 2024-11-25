@@ -14,7 +14,7 @@ import { generateVerificationCode } from "../utils/generateVerificationCode.js";
 import { generateTokenAndSetCookie } from "../utils/generateTokenAndSetCookie.js";
 
 export const signup = async (req, res) => {
-  const { email, password, name, termsAccepted, privacyPolicyAccepted, phoneNumber } =
+  const { email, password, name, termsAccepted, privacyPolicyAccepted } =
     req.body;
 
   try {
@@ -36,10 +36,6 @@ export const signup = async (req, res) => {
         .json({ success: false, message: "user already exists" });
     }
 
-    if (phoneNumber === null || phoneNumber === undefined) {
-      delete req.body.phoneNumber; // Remove the phoneNumber field if null or undefined
-    }
-
     const hashedPassword = await bcryptjs.hash(password, 10);
     const verificationCode = generateVerificationCode();
 
@@ -53,7 +49,6 @@ export const signup = async (req, res) => {
       privacyPolicyAccepted: true,
       termsAcceptedAt: Date.now(),
       privacyPolicyAcceptedAt: Date.now(),
-      phoneNumber,
     });
 
     await user.save();

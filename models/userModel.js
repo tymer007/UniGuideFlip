@@ -20,13 +20,7 @@ const UserSchema = new mongoose.Schema(
       type: String,
       unique: true,
       sparse: true, // Prevents uniqueness issues for null/undefined
-    },
-    phoneNumber: {
-      type: String,
-      required: false,
-      unique: true,
-      sparse: true,
-    },    
+    },   
     profilePicture: {
       type: String, // URL or path to photo
     },
