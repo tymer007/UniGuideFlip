@@ -23,9 +23,8 @@ const UserSchema = new mongoose.Schema(
     },
     phoneNumber: {
       type: String,
-      required: false,
       unique: true,
-      sparse: true
+      sparse: true,
     },    
     profilePicture: {
       type: String, // URL or path to photo
