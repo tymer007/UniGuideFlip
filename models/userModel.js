@@ -25,6 +25,7 @@ const UserSchema = new mongoose.Schema(
       type: String,
       required: false, // Make it required if necessary
       unique: true,
+      sparse: true
     },
     profilePicture: {
       type: String, // URL or path to photo
