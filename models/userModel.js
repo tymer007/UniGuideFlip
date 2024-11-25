@@ -25,13 +25,7 @@ const UserSchema = new mongoose.Schema(
       type: String,
       required: false,
       unique: true,
-      sparse: true,
-      validate: {
-        validator: function(value) {
-          return value !== null && value !== '';
-        },
-        message: 'Phone number cannot be null or empty',
-      },
+      sparse: true
     },    
     profilePicture: {
       type: String, // URL or path to photo
