@@ -14,7 +14,8 @@ import { generateVerificationCode } from "../utils/generateVerificationCode.js";
 import { generateTokenAndSetCookie } from "../utils/generateTokenAndSetCookie.js";
 
 export const signup = async (req, res) => {
-  const { email, password, name, termsAccepted, privacyPolicyAccepted  } = req.body;
+  const { email, password, name, termsAccepted, privacyPolicyAccepted } =
+    req.body;
 
   try {
     if (!email || !password || !name) {
@@ -33,6 +34,10 @@ export const signup = async (req, res) => {
       return res
         .status(400)
         .json({ success: false, message: "user already exists" });
+    }
+
+    if (phoneNumber === null || phoneNumber === undefined) {
+      delete req.body.phoneNumber; // Remove the phoneNumber field if null or undefined
     }
 
     const hashedPassword = await bcryptjs.hash(password, 10);
@@ -65,7 +70,7 @@ export const signup = async (req, res) => {
       user: {
         ...user._doc,
         password: undefined,
-        verificationCode: undefined
+        verificationCode: undefined,
       },
     });
   } catch (error) {
@@ -155,10 +160,14 @@ export const logout = async (req, res) => {
       maxAge: 0, // immediately expires token
     });
 
-    return res.status(200).json({ success: true, message: "Logged out successfully" });
+    return res
+      .status(200)
+      .json({ success: true, message: "Logged out successfully" });
   } catch (error) {
     console.error("Error in logout", error);
-    return res.status(500).json({ success: false, message: "Server error during logout" });
+    return res
+      .status(500)
+      .json({ success: false, message: "Server error during logout" });
   }
 };
 
@@ -187,12 +196,10 @@ export const forgotPassword = async (req, res) => {
       user.email,
       `${process.env.CLIENT_URL}/reset-password/${resetToken}`
     );
-    res
-      .status(200)
-      .json({
-        success: true,
-        message: "Password reset link sent to your email",
-      });
+    res.status(200).json({
+      success: true,
+      message: "Password reset link sent to your email",
+    });
   } catch (error) {
     console.log("Error", error);
     res.status(400).json({ success: false, message: error.message });
@@ -210,12 +217,10 @@ export const resetPassword = async (req, res) => {
     });
 
     if (!user) {
-      return res
-        .status(400)
-        .json({
-          success: false,
-          message: "Invalid or expired reset password link",
-        });
+      return res.status(400).json({
+        success: false,
+        message: "Invalid or expired reset password link",
+      });
     }
 
     // update password
