@@ -14,10 +14,10 @@ Designed with a focus on scalability and performance, the API ensures secure dat
 - **Other Services**: Cloudinary for image uploads  
 
 ### **Live Platform**  
-[Visit UniGuide](https://uniguideng.com)  
+[Visit UniGuide](https://uniguideng.com)
 
-### **Project Repository**  
-[GitHub Link](https://github.com/tymer007/UniGuideFlip)  
+### **Postman Documentation**  
+[Documentation Link](https://www.postman.com/tymer007/uniguideflip/documentation/wc2srki/uniguide?workspaceId=7b934335-f6f3-4b96-b64e-1dac3c871185)  
 
 ---
 
