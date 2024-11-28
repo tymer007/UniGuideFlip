@@ -34,7 +34,7 @@ To run this project, you will need to add the following environment variables to
 | `CLOUDINARY_API_KEY`      | Cloudinary API key                           | `1234567890`                  |  
 | `CLOUDINARY_API_SECRET`   | Cloudinary API secret                        | `abcdef123456`                |  
 | `JWT_SECRET`              | Secret key for JWT token generation          | `mysecretkey`                 |  
-| `NODE_ENV`                | Environment mode                             | `development` or `production` |  
+| `NODE_ENV`                | testing locally ? "development":"production" | `development` or `production` |  
 | `GMAIL_USER`              | Gmail email with 2-step verification enabled | `example@gmail.com`           |  
 | `GMAIL_PASS`              | Gmail App password                           | `app-password`                |  
 
@@ -57,17 +57,11 @@ To run this project, you will need to add the following environment variables to
 
 4. Start the server:  
    ```bash  
-   npm start  
+   npm run dev  
    ```  
 
 5. Access the API at your configured `PORT`.  
 
 ---
-
-### **Contributing**  
-Feel free to open issues or submit pull requests to improve this project.  
-
-### **License**  
-This project is licensed under the [MIT License](LICENSE).  
 
 Enjoy seamless campus navigation with UniGuide! 🌟
