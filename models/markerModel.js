@@ -19,7 +19,8 @@ const MarkerSchema = new mongoose.Schema({
   },
   buildingName: {
     type: String,
-    required: true
+    required: true,
+    trim: true
   },
   description: {
     type: String,
